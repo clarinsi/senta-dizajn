@@ -1,0 +1,70 @@
+<ng-container *transloco="let t">
+  <header class="site-header">
+    <div class="site-header__container">
+      <div>
+        <h1 class="site-header__title">
+          <a routerLink="/">
+            Senta
+          </a>
+        </h1>
+        <span class="site-header__subtitle">{{ t('page_subtitle') }}</span>
+      </div>
+      <ul class="lang-picker">
+        <li>
+          <a routerLink="/" [title]="t('switch_language.sl')"
+             [ngClass]="{'lang-picker__current': currentLang === 'sl'}">
+            SLO
+          </a>
+        </li>
+        <li>
+          <a routerLink="/en" [title]="t('switch_language.en')"
+             [ngClass]="{'lang-picker__current': currentLang === 'en'}">
+            ENG
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="main">
+    <router-outlet></router-outlet>
+  </main>
+
+  <aside class="about">
+    <div class="about__container">
+      <article>
+        <h2 class="about__title">{{ t('about.1.title') }}</h2>
+        <p class="about__text">{{ t('about.1.text') }}</p>
+      </article>
+      <article>
+        <h2 class="about__title">{{ t('about.2.title') }}</h2>
+        <p class="about__text">{{ t('about.2.text') }}</p>
+      </article>
+      <article>
+        <h2 class="about__title">{{ t('about.3.title') }}</h2>
+        <p class="about__text">{{ t('about.3.text') }}</p>
+      </article>
+      <p><a [routerLink]="[currentLang != 'sl' ? currentLang : '', 'o-projektu']"
+            class="about__link">{{ t('about_project') }}</a></p>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <article class="site-footer__logos-container">
+      <div class="site-footer__logos">
+        <img ngSrc="assets/images/clarin.png" alt="Clarin.si" width="191" height="80" style="min-width: 100px">
+        <img ngSrc="assets/images/ijs.svg" alt="Institut Jožef Stefan" width="185" height="56"
+             style="min-width: 110px;">
+        <img ngSrc="assets/images/ul-cjvt.svg" alt="Univerza v Ljubljani, CJVT" width="265" height="64"
+             style="min-width: 180px">
+      </div>
+      <div class="site-footer__logos">
+        <img ngSrc="assets/images/mk.svg" alt="Ministrstvo za kulturo" width="194" height="29"
+             style="min-width: 150px;">
+        <img ngSrc="assets/images/esrr.svg" alt="Evropski sklad za regionalni razvoj" width="152" height="54"
+             style="min-width: 120px;">
+      </div>
+    </article>
+    <p class="site-footer__text">{{ t('footer') }}</p>
+  </footer>
+</ng-container>

@@ -1,0 +1,73 @@
+:host {
+  @apply min-h-screen flex flex-col;
+}
+
+.site-header {
+  @apply py-6 bg-blue-1 text-white;
+
+  &__container {
+    @apply container flex justify-between items-center;
+  }
+
+  &__title {
+    @apply font-bold uppercase text-xl tracking-widest;
+  }
+
+  &__subtitle {
+    @apply font-light tracking-widest;
+  }
+}
+
+.lang-picker {
+  @apply flex items-center text-blue-2 text-sm tracking-wider;
+
+  li:not(:last-child):after {
+    @apply px-1;
+    content: "/";
+  }
+
+  &__current {
+    @apply text-white;
+  }
+}
+
+.main {
+  @apply grow;
+}
+
+.about {
+  @apply py-12 md:pb-40 text-grey-warm-3 bg-blue-1;
+
+  &__container {
+    @apply container grid md:grid-cols-3 gap-10;
+  }
+
+  &__title {
+    @apply mb-10 border-b border-blue-3 p-2.5 font-bold text-xl tracking-wider text-blue-3;
+  }
+
+  &__text {
+    @apply tracking-wider;
+    line-height: 1.75;
+  }
+
+  &__link {
+    @apply text-blue-3 underline hover:no-underline;
+  }
+}
+
+.site-footer {
+  @apply py-2 bg-gradient-to-b from-[#E5F2FF] to-white;
+
+  &__logos-container {
+    @apply container lg:flex lg:items-center lg:justify-between py-4 gap-4 md:gap-6 mb-4;
+  }
+
+  &__logos {
+    @apply flex items-center justify-center flex-wrap sm:flex-nowrap gap-4 md:gap-6 xl:gap-10 space-y-8 md:space-y-0 mt-6 md:mt-0;
+  }
+
+  &__text {
+    @apply text-center opacity-60 text-xs;
+  }
+}

@@ -1,0 +1,96 @@
+<ng-container *transloco="let t">
+  <article class="layout">
+    <div class="layout__toolbar">
+      <app-text-analysis-toolbar
+        *ngIf="state === State.Analyzed && analysis"
+        [analysis]="analysis"
+        [status]="statusMessage"
+        [canChangeDisplayMode]="!simplifiedTextHasChanged"
+        (toggleDisplayMode)="showParallelMode($event)"
+        #toolbar
+      />
+    </div>
+
+    <div class="layout__main">
+      <ng-container *ngIf="inParallelMode; else sentenceView">
+        <div aria-live="polite" class="sr-only" #markedWordsEl></div>
+
+        <app-textarea
+          [value]="inputText"
+          [sentences]="analysis?.complexSentences"
+          [disabled]="state !== State.Initial"
+          [canHoverSentences]="state !== State.Initial && !simplifiedTextHasChanged"
+          [showToolbar]="state === State.Analyzed"
+          [showCounter]="true"
+          [showLikeDislike]="false"
+          [showStartOver]="state === State.Analyzed"
+          [showFilters]="inParallelMode"
+          [showExampleText]="state === State.Initial"
+          [stats]="analysis ? analysis.complexStats : null"
+          (valueChange)="inputText = $event"
+          (reanalyze)="analyze()"
+          (announceToScreenReader)="announceToScreenReader(t('announce.complex') + $event)"
+          [label]="t('textarea.complex.placeholder')"
+          [placeholder]="t('textarea.complex.placeholder')"
+          [submitButtonText]="t('textarea.complex.resubmit')"
+          class="w-full"
+        />
+
+        <app-textarea
+          [value]="analysis ? analysis.simplifiedText : ''"
+          [sentences]="analysis?.simplifiedSentences"
+          [disabled]="true"
+          [canHoverSentences]="state !== State.Initial && !simplifiedTextHasChanged"
+          [showToolbar]="state === State.Analyzed"
+          [showCounter]="false"
+          [showLikeDislike]="true"
+          [showStartOver]="false"
+          [stats]="analysis ? analysis.simplifiedStats : null"
+          [showFilters]="inParallelMode"
+          (valueChange)="analysis!.simplifiedText = $event; simplifiedTextChanged()"
+          (reanalyze)="refreshSimplifiedStats()"
+          (announceToScreenReader)="announceToScreenReader(t('announce.simplified') + $event)"
+          [label]="t('textarea.simplified.label')"
+          placeholder=""
+          [submitButtonText]="t('textarea.complex.resubmit')"
+          class="w-full"
+        />
+      </ng-container>
+
+      <ng-template #sentenceView>
+        <app-sentence-view
+          class="col-span-2"
+          [analysis]="analysis"
+          (onChange)="analysis!.simplifiedText = $event; simplifiedTextChanged()"
+          (onRefreshStats)="refreshSimplifiedStats()"
+        />
+      </ng-template>
+    </div>
+
+    <ng-container *ngIf="state !== State.Analyzed">
+      <button type="button"
+              class="btn btn--primary start-button"
+              aria-live="polite"
+              (click)="analyze()">
+        <ng-container *ngIf="state === State.Analyzing; else submitText">
+          {{ t('analyzing') }}
+          <svg class="animate-spin" height="19" width="19" xmlns="http://www.w3.org/2000/svg" fill="none"
+               viewBox="0 0 24 24" aria-hidden="true">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </ng-container>
+        <ng-template #submitText>
+          {{ t('analyze') }}
+          <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true">
+            <path
+              d="M10.333 0.800003L9.39967 1.73334L14.3997 6.8H0.333008V8.13334H14.3997L9.39967 13.2L10.333 14.1333L16.9997 7.46667L10.333 0.800003Z"
+              fill="currentColor"/>
+          </svg>
+        </ng-template>
+      </button>
+    </ng-container>
+  </article>
+</ng-container>

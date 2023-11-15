@@ -1,0 +1,13 @@
+<ng-container *transloco="let t">
+  <button type="button"
+          [appTippy]="t('revert')"
+          class="textarea-button"
+          (click)="onClick.emit()">
+    <span class="sr-only">{{ t('revert') }}</span>
+    <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1.57999 4.15997H15.42C17.08 4.15997 18.42 5.49997 18.42 7.15997V10.48M1.57999 4.15997L4.73999 1M1.57999 4.15997L4.73999 7.32001M18.42 17.84H4.57999C2.91999 17.84 1.57999 16.5 1.57999 14.84V11.52M18.42 17.84L15.26 21M18.42 17.84L15.26 14.68"
+        stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</ng-container>

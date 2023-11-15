@@ -1,0 +1,56 @@
+<ng-container *transloco="let t">
+  <section class="stats">
+    <h2 class="stats__title">{{ caption }}</h2>
+    <div class="stats__row">
+      <span class="stats__label">{{ t('stats.num_of_sentences') }}</span>
+      <span class="stats__value">{{ stats.numOfSentences }}</span>
+    </div>
+    <div class="stats__row">
+      <span class="stats__label">{{ t('stats.num_of_words') }}</span>
+      <span class="stats__value">{{ stats.numOfWords }}</span>
+    </div>
+    <div class="stats__row">
+      <span class="stats__label">{{ t('stats.num_of_characters') }}</span>
+      <span class="stats__value">{{ stats.numOfCharacters }}</span>
+    </div>
+    <div class="stats__row">
+      <span class="stats__label" [innerHTML]="t('stats.not_in_general')"></span>
+      <button type="button"
+              *ngIf="showFilters"
+              (click)="toggleFilter(FilterType.GeneralWords)"
+              class="btn {{ isEnabled(FilterType.GeneralWords) ? 'btn--primary' : 'btn--outline' }} btn--small mr-3">
+        {{ isEnabled(FilterType.GeneralWords) ? t('stats.hide') : t('stats.show') }}
+        <span class="sr-only">{{ t('stats.not_in_general_sr') }}</span>
+      </button>
+      <span class="stats__value stats__value--fixed">
+      {{ stats.wordsNotOnGeneralPercent.toLocaleString("sl-SI") }}&nbsp;&percnt;
+    </span>
+    </div>
+    <div class="stats__row">
+      <span class="stats__label" [innerHTML]="t('stats.not_in_textbook')"></span>
+      <button type="button"
+              *ngIf="showFilters"
+              (click)="toggleFilter(FilterType.TextbookWords)"
+              class="btn {{ isEnabled(FilterType.TextbookWords) ? 'btn--primary' : 'btn--outline' }} btn--small mr-3">
+        {{ isEnabled(FilterType.TextbookWords) ? t('stats.hide') : t('stats.show') }}
+        <span class="sr-only">{{ t('stats.not_in_textbook_sr') }}</span>
+      </button>
+      <span class="stats__value stats__value--fixed">
+      {{ stats.wordsNotOnTextbookPercent.toLocaleString("sl-SI") }}&nbsp;&percnt;
+    </span>
+    </div>
+    <div class="stats__row">
+    <span class="stats__label">{{ t('stats.words_longer_than') }}
+      <app-word-length-filter [selected]="longWordsThreshold" (selectedChange)="updateLongWordsThreshold($event)"/>
+      {{ t('stats.characters') }}</span>
+      <button type="button"
+              *ngIf="showFilters"
+              (click)="toggleFilter(FilterType.LongWords)"
+              class="btn {{ isEnabled(FilterType.LongWords) ? 'btn--primary' : 'btn--outline' }} btn--small mr-3">
+        {{ isEnabled(FilterType.LongWords) ? t('stats.hide') : t('stats.show') }}
+        <span class="sr-only">{{ t('stats.words_longer_than_sr', {value: longWordsThreshold}) }}</span>
+      </button>
+      <span class="stats__value stats__value--fixed">{{ numOfLongWords }}</span>
+    </div>
+  </section>
+</ng-container>

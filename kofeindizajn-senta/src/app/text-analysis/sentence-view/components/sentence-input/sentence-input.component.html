@@ -1,0 +1,25 @@
+<ng-container *transloco="let t">
+  <div class="sentence-view">
+    <label for="{{ componentId }}" class="sr-only">{{ t("simplified_sentence") }}</label>
+    <textarea
+      id="{{ componentId }}"
+      class="sentence-view__textarea {{ inEditMode ? 'sentence-view__textarea--editing' : '' }}"
+      [disabled]="!inEditMode"
+      (input)="setTextAreaHeight()"
+      #textarea>{{ sentence }}</textarea>
+
+    <div class="sentence-view__buttons">
+      <app-sentence-edit-button *ngIf="!inEditMode" (onClick)="startEditing()"/>
+
+      <ng-container *ngIf="inEditMode">
+        <button type="button" class="btn btn--primary btn--small" (click)="applyChanges(textarea.value)">
+          {{ t('submit') }}
+        </button>
+
+        <app-sentence-cancel-button class="flex" (onClick)="cancelChanges(textarea)"/>
+
+        <app-sentence-revert-button class="flex" (onClick)="revert(textarea)"/>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

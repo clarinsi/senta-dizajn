@@ -1,0 +1,20 @@
+<ng-container *transloco="let t">
+  <div class="toolbar">
+    <div class="toolbar__group">
+      <span *ngIf="counter" class="counter" [attr.aria-label]="t('counter_label')">
+        {{ currentText.length }}/3000
+      </span>
+
+      <app-textarea-like-dislike-button [text]="currentText" *ngIf="likeDislikeButton"/>
+    </div>
+
+    <div class="toolbar__group">
+      <app-textarea-cancel-button *ngIf="cancelButton" (onClick)="this.onCancelButtonClicked.emit()"/>
+
+      <ng-container *ngIf="!cancelButton">
+        <app-textarea-edit-button *ngIf="editButton" (onClick)="this.onEditButtonClicked.emit()"/>
+        <app-textarea-copy-button *ngIf="copyButton" [text]="currentText"/>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

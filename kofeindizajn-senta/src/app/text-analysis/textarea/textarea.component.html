@@ -1,0 +1,64 @@
+<ng-container *transloco="let t">
+  <div class="textarea__layout">
+    <div class="textarea__wrapper">
+      <app-textarea-start-over-button *ngIf="showStartOver"/>
+
+      <div *ngIf="disabled && !inEditMode; else textarea"
+           class="fake-textarea"
+           tabindex="{{ value.length > 0 ? 0 : -1 }}"
+           #fakeTextareaElement
+           (mouseover)="highlightHoveredSentences($event.target)"
+           (mouseout)="removeHighlightFromHoveredSentences()"
+           [innerHtml]="htmlValue">
+      </div>
+
+      <ng-template #textarea>
+        <label class="sr-only" for="{{ componentId }}">{{ label }}</label>
+
+        <textarea
+          id="{{ componentId }}"
+          class="textarea"
+          [value]="value"
+          [disabled]="disabled && !inEditMode"
+          [readOnly]="disabled && !inEditMode"
+          [maxLength]="3000"
+          [placeholder]="placeholder"
+          aria-placeholder=""
+          (input)="!inEditMode ? applyChanges() : null"
+          #textareaElement></textarea>
+      </ng-template>
+
+      <app-textarea-toolbar
+        [currentText]="value"
+        [counter]="showCounter"
+        [likeDislikeButton]="showToolbar && showLikeDislike"
+        [editButton]="showToolbar && !inEditMode"
+        [cancelButton]="showToolbar && inEditMode"
+        [copyButton]="showToolbar && !inEditMode"
+        (onEditButtonClicked)="setEditMode(true)"
+        (onCancelButtonClicked)="cancelChanges()"
+      />
+
+      <button *ngIf="showExampleText" type="button" class="textarea__example-text-btn" (click)="insertExampleText()">
+        {{ t('insert_example_text') }}
+      </button>
+    </div>
+
+    <app-statistics
+      *ngIf="stats && !inEditMode"
+      [stats]="stats"
+      [text]="value"
+      [showFilters]="showFilters"
+      (highlightWords)="highlightedWords = $event"
+      class="w-full"
+      [caption]="t('analysis')"
+    />
+
+    <button *ngIf="inEditMode"
+            type="button"
+            class="btn btn--primary"
+            (click)="applyChanges(); reanalyze.emit()">
+      {{ submitButtonText }}
+    </button>
+  </div>
+</ng-container>

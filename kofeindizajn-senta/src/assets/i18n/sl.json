@@ -1,0 +1,80 @@
+{
+  "page_subtitle": "Stavčno poenostavljanje in analiza",
+  "switch_language": {
+    "sl": "Spremeni v slovenščino",
+    "en": "Spremeni v angleščino"
+  },
+  "about": {
+    "1": {
+      "title": "Poenostavljanje",
+      "text": "SENTA oceni kompleksnost vsake povedi in poenostavi kompleksne, enostavne pa pusti nespremenjene."
+    },
+    "2": {
+      "title": "Analiza",
+      "text": "Za izvirno in poenostavljeno besedilo se opravi analiza glavnih značilnosti, med drugim tudi, kolikšen delež besed ni na referenčnem splošnem oz. učbeniškem seznamu."
+    },
+    "3": {
+      "title": "Urejanje",
+      "text": "V SENTI lahko poenostavljeno besedilo urejate v vsakem od obeh načinov prikaza in ga skopirate za uporabo izven aplikacije."
+    }
+  },
+  "footer": "CLARIN.SI is supported by the Ministry of Education, Science and Sport of the Republic of Slovenia under the Programme of \"Research Infrastructures\"",
+  "announce": {
+    "complex": "V kompleksnem besedilu so označene naslednje besede: ",
+    "simplified": "V poenostavljenem besedilu so označene naslednje besede: "
+  },
+  "num_of_simplified_sentences": "Število poenostavljenih povedi: {{value}}",
+  "not_connected": "Besedili nista več povezani.",
+  "textarea": {
+    "complex": {
+      "placeholder": "Prilepi ali vnesi besedilo",
+      "resubmit": "Ponovno poenostavi in analiziraj"
+    },
+    "simplified": {
+      "label": "Poenostavljeno besedilo",
+      "resubmit": "Ponovno analiziraj"
+    }
+  },
+  "analyzing": "Analiziram besedilo",
+  "analyze": "Analiziraj in poenostavi",
+  "display_mode": "Možnost prikaza",
+  "parallel_mode": "Vzporedno",
+  "parallel_mode_sr": "Prikaži vzporedno obe besedili",
+  "sentence_mode": "Po stavkih",
+  "sentence_mode_sr": "Prikaži besedili členjeno po stavkih",
+  "start_over": "Začni znova",
+  "start_over_sr": "Izbriši besedilo in začni od začetka",
+  "counter_label": "Število uporabljenih in razpoložljivih znakov",
+  "reacted": "Vaš odziv je zabeležen",
+  "like": "Všeč mi je",
+  "dislike": "Ni mi všeč",
+  "cancel": "Prekliči spremembe",
+  "edit": "Uredi",
+  "copy": "Kopiraj",
+  "copy_success": "Besedilo je uspešno kopirano",
+  "insert_example_text": "Vstavi vzorčno besedilo",
+  "analysis": "Analiza besedila",
+  "stats": {
+    "num_of_sentences": "Število povedi",
+    "num_of_words": "Število besed",
+    "num_of_characters": "Število znakov",
+    "not_in_general": "Besede izven <a href=\"o-referencnih-seznamih\" title=\"O referenčnih seznamih\" target=\"_blank\">splošnega referenčnega seznama</a>",
+    "not_in_textbook": "Besede izven <a href=\"o-referencnih-seznamih\" title=\"O referenčnih seznamih\" target=\"_blank\">učbeniškega referenčnega seznama</a>",
+    "hide": "Skrij",
+    "show": "Pokaži",
+    "not_in_general_sr": "besede izven splošnega referenčnega seznama",
+    "not_in_textbook_sr": "besede izven učbeniškega referenčnega seznama",
+    "words_longer_than": "Besede, daljše od",
+    "characters": "znakov",
+    "words_longer_than_sr": "besede, daljše od {{ value }} znakov"
+  },
+  "input_sentence": "Izvorna poved",
+  "simplified_sentence": "Poenostavljena poved",
+  "submit": "Potrdi",
+  "revert": "Vrni izvorno poved",
+  "about_project": "O projektu",
+  "error": {
+    "generic": "Prišlo je do napake. Poskusite znova kasneje.",
+    "not_connected": "Pogleda ni mogoče preklopiti, ker besedili nista več povezani."
+  }
+}

@@ -1,0 +1,20 @@
+<ng-container *transloco="let t">
+  <div class="layout" *ngIf="analysis">
+    <article class="sentence" *ngFor="let i of sentences">
+      <p class="sentence__complex" [attr.aria-label]="t('input_sentence')">{{ analysis!.complexSentences[i] }}</p>
+      <div class="sentence__simplified">
+        <app-sentence-input
+          [(sentence)]="analysis!.simplifiedSentences[i]"
+          (sentenceChange)="onChange.emit(analysis!.simplifiedSentences.join(' ')); onRefreshStats.emit()"
+          [complexSentence]="analysis!.complexSentences[i]"
+          class="w-full"
+        />
+      </div>
+    </article>
+
+    <div class="stats" *ngIf="analysis!.complexStats && analysis!.simplifiedStats">
+      <app-statistics [stats]="analysis!.complexStats" [text]="analysis!.complexText" caption="Analiza besedila"/>
+      <app-statistics [stats]="analysis!.simplifiedStats" [text]="analysis!.simplifiedText" caption="Analiza besedila"/>
+    </div>
+  </div>
+</ng-container>

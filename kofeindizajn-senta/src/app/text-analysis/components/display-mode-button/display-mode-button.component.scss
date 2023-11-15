@@ -1,0 +1,21 @@
+.layout {
+  @apply flex items-center gap-x-2.5 relative;
+}
+
+.display-mode-button {
+  @apply w-[30px] h-[26px] p-2 rounded-md border border-blue-2 flex items-center hover:bg-blue-2 hover:text-white focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-blue-2;
+
+  @apply text-blue-2;
+
+  &--active {
+    @apply text-white bg-blue-2;
+  }
+}
+
+.error-message {
+  @apply absolute right-0 px-1 py-0.5 rounded-[3px] bg-blue-4 text-blue-1 text-xs text-center;
+
+  min-width: 140px;
+  z-index: 1;
+  top: calc(100% + 0.75rem);
+}

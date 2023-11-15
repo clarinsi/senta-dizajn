@@ -1,0 +1,15 @@
+.sentence-view {
+  @apply md:flex md:items-center md:gap-6;
+
+  &__buttons {
+    @apply flex items-center gap-6 mt-4 md:mt-0;
+  }
+
+  &__textarea {
+    @apply w-full px-2 md:px-4 py-2 bg-transparent border border-blue-4 rounded-md focus:outline-none focus:border-blue-2 font-semibold resize-none overflow-y-hidden text-blue-1;
+
+    &--editing {
+      @apply text-blue-2;
+    }
+  }
+}

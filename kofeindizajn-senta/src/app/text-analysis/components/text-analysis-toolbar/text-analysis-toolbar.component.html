@@ -1,0 +1,13 @@
+<div class="toolbar">
+  <div class="toolbar__left">
+    <ng-container *ngIf="status">
+      {{ status }}
+    </ng-container>
+  </div>
+
+  <div class="toolbar__right">
+    <app-display-mode-button
+      [canChange]="canChangeDisplayMode"
+      (toggleDisplayMode)="toggleDisplayMode.emit($event)"/>
+  </div>
+</div>

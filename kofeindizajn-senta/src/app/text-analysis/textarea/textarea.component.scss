@@ -1,0 +1,38 @@
+.textarea__layout {
+  @apply flex flex-col items-center gap-y-4;
+}
+
+.textarea {
+  &__wrapper {
+    @apply relative w-full h-[500px];
+  }
+
+  @apply placeholder:text-blue-2 placeholder:font-bold placeholder:text-2xl placeholder:tracking-wider;
+  @apply resize-none;
+
+  line-height: 1.6;
+  border-radius: inherit;
+
+  &__example-text-btn {
+    @apply mt-1.5 text-xs text-blue-2 hover:underline;
+  }
+}
+
+.fake-textarea,
+.textarea {
+  @apply w-full h-full p-5 md:pt-10 md:px-6;
+  @apply border border-blue-4 rounded-md focus:outline-none focus:border-blue-2;
+  @apply bg-transparent text-blue-1 text-xl tracking-wider;
+
+  // Adjust the scrollbar height to exclude the toolbar's height.
+  border-bottom-width: var(--textarea-toolbar-height);
+}
+
+.fake-textarea {
+  white-space: pre-line; // @see https://stackoverflow.com/questions/44743813/new-line-n-is-not-working-in-typescript
+  overflow-y: auto;
+
+  .sentence--hovered {
+    @apply bg-blue-4;
+  }
+}

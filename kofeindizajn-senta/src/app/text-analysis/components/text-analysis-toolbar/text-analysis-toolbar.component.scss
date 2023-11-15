@@ -1,0 +1,13 @@
+.toolbar {
+  @apply md:flex md:items-center text-sm font-light text-grey-1 tracking-wider;
+
+  min-height: 26px;
+
+  &__left {
+    @apply grow md:flex md:items-center md:gap-3 lg:gap-5 mb-5 md:mb-0;
+  }
+
+  &__right {
+    @apply flex items-center;
+  }
+}

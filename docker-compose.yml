@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  senta:
+    build:
+      context: kofeindizajn-senta
+    image: registry.cjvt.si/vejicar:2021-01-28_0
+    restart: always
+    ports:
+      - 127.0.0.1:5007:80

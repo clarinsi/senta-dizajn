@@ -1,0 +1,25 @@
+.layout {
+  @apply flex flex-col items-center my-8;
+}
+
+.sentence {
+  @apply w-full text-lg text-blue-1 tracking-wider mb-10 last:mb-0;
+
+  line-height: 1.6;
+
+  &__complex {
+    @apply mb-1;
+  }
+
+  &__simplified {
+    @apply flex items-center;
+  }
+}
+
+.status {
+  @apply my-20 text-lg text-blue-1;
+}
+
+.stats {
+  @apply w-full grid md:grid-cols-2 gap-10;
+}

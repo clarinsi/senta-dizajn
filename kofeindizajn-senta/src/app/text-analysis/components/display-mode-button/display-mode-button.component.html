@@ -1,0 +1,63 @@
+<ng-container *transloco="let t">
+  <div class="layout">
+    <span class="md:sr-only xl:not-sr-only">{{ t('display_mode') }}:</span>
+
+    <button type="button"
+            class="display-mode-button {{ inParallelMode ? 'display-mode-button--active' : '' }}"
+            (click)="displayParallelMode(true)"
+            [appTippy]="t('parallel_mode')">
+      <span class="sr-only">{{ t('parallel_mode_sr') }}</span>
+      <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0 1C0 0.447716 0.447715 0 1 0H9C9.55228 0 10 0.447715 10 1V1.35294C10 1.90523 9.55229 2.35294 9 2.35294H1C0.447716 2.35294 0 1.90523 0 1.35294V1Z"
+          fill="currentColor"/>
+        <path
+          d="M0 6.88235C0 6.33007 0.447715 5.88235 1 5.88235H9C9.55228 5.88235 10 6.33007 10 6.88235V7.23529C10 7.78758 9.55229 8.23529 9 8.23529H1C0.447716 8.23529 0 7.78758 0 7.23529V6.88235Z"
+          fill="currentColor"/>
+        <path
+          d="M0 12.7647C0 12.2124 0.447715 11.7647 1 11.7647H9C9.55228 11.7647 10 12.2124 10 12.7647V13.1176C10 13.6699 9.55229 14.1176 9 14.1176H1C0.447716 14.1176 0 13.6699 0 13.1176V12.7647Z"
+          fill="currentColor"/>
+        <path
+          d="M0 18.6471C0 18.0948 0.447715 17.6471 1 17.6471H9C9.55228 17.6471 10 18.0948 10 18.6471V19C10 19.5523 9.55229 20 9 20H1C0.447716 20 0 19.5523 0 19V18.6471Z"
+          fill="currentColor"/>
+        <path
+          d="M13 1C13 0.447716 13.4477 0 14 0H22C22.5523 0 23 0.447715 23 1V1.35294C23 1.90523 22.5523 2.35294 22 2.35294H14C13.4477 2.35294 13 1.90523 13 1.35294V1Z"
+          fill="currentColor"/>
+        <path
+          d="M13 6.88235C13 6.33007 13.4477 5.88235 14 5.88235H22C22.5523 5.88235 23 6.33007 23 6.88235V7.23529C23 7.78758 22.5523 8.23529 22 8.23529H14C13.4477 8.23529 13 7.78758 13 7.23529V6.88235Z"
+          fill="currentColor"/>
+        <path
+          d="M13 12.7647C13 12.2124 13.4477 11.7647 14 11.7647H22C22.5523 11.7647 23 12.2124 23 12.7647V13.1176C23 13.6699 22.5523 14.1176 22 14.1176H14C13.4477 14.1176 13 13.6699 13 13.1176V12.7647Z"
+          fill="currentColor"/>
+        <path
+          d="M13 18.6471C13 18.0948 13.4477 17.6471 14 17.6471H22C22.5523 17.6471 23 18.0948 23 18.6471V19C23 19.5523 22.5523 20 22 20H14C13.4477 20 13 19.5523 13 19V18.6471Z"
+          fill="currentColor"/>
+      </svg>
+    </button>
+
+    <button type="button"
+            class="display-mode-button {{ inParallelMode ? '' : 'display-mode-button--active' }}"
+            (click)="displayParallelMode(false)"
+            [appTippy]="t('sentence_mode')">
+      <span class="sr-only">{{ t('sentence_mode_sr') }}</span>
+      <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0 1C0 0.447716 0.447715 0 1 0H22C22.5523 0 23 0.447715 23 1V1.35294C23 1.90523 22.5523 2.35294 22 2.35294H1C0.447715 2.35294 0 1.90523 0 1.35294V1Z"
+          fill="currentColor"/>
+        <path
+          d="M0 6.88235C0 6.33007 0.447715 5.88235 1 5.88235H22C22.5523 5.88235 23 6.33007 23 6.88235V7.23529C23 7.78758 22.5523 8.23529 22 8.23529H1C0.447715 8.23529 0 7.78758 0 7.23529V6.88235Z"
+          fill="currentColor"/>
+        <path
+          d="M0 12.7647C0 12.2124 0.447715 11.7647 1 11.7647H22C22.5523 11.7647 23 12.2124 23 12.7647V13.1176C23 13.6699 22.5523 14.1176 22 14.1176H1C0.447715 14.1176 0 13.6699 0 13.1176V12.7647Z"
+          fill="currentColor"/>
+        <path
+          d="M0 18.6471C0 18.0948 0.447715 17.6471 1 17.6471H22C22.5523 17.6471 23 18.0948 23 18.6471V19C23 19.5523 22.5523 20 22 20H1C0.447715 20 0 19.5523 0 19V18.6471Z"
+          fill="currentColor"/>
+      </svg>
+    </button>
+
+    <div class="error-message" *ngIf="errorMessage" aria-live="assertive">
+      {{ errorMessage }}
+    </div>
+  </div>
+</ng-container>

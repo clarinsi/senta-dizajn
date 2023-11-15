@@ -1,0 +1,15 @@
+.layout {
+  @apply container pb-14 flex flex-col;
+
+  &__toolbar {
+    @apply my-5 md:mt-7 md:mb-5 md:min-h-[26px];
+  }
+
+  &__main {
+    @apply grid md:grid-cols-2 gap-10;
+  }
+}
+
+.start-button {
+  @apply mt-7 mx-auto flex items-center gap-2.5 w-fit;
+}

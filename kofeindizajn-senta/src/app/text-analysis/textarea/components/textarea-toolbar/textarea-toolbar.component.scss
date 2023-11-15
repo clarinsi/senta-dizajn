@@ -1,0 +1,17 @@
+.toolbar {
+  @apply absolute bottom-px left-px right-px;
+  @apply px-6 pb-6 pt-3;
+  @apply flex items-center justify-between;
+  @apply rounded-b-md;
+  @apply bg-white text-sm text-blue-2 tracking-wider;
+
+  height: var(--textarea-toolbar-height);
+
+  &__group {
+    @apply flex items-center space-x-5;
+  }
+}
+
+.counter {
+  min-height: 30px;
+}
