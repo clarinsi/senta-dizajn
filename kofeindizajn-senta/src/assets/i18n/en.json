@@ -1,6 +1,80 @@
 {
+  "page_subtitle": "Sentence simplification and analysis",
+  "switch_language": {
+    "sl": "Change to Slovene",
+    "en": "Change to English"
+  },
+  "about": {
+    "1": {
+      "title": "Simplification",
+      "text": "SENTA evaluates the complexity of each sentence and simplifies the complex ones, while leaving the simple ones unchanged."
+    },
+    "2": {
+      "title": "Analysis",
+      "text": "The analysis of main characteristics is conducted for the original text and the simplified text, including the percentages of words not included in the general reference or textbook wordlists."
+    },
+    "3": {
+      "title": "Editing",
+      "text": "In SENTA, you can edit the simplified text in both views, and copy it for further use."
+    }
+  },
+  "footer": "CLARIN.SI is supported by the Ministry of Education, Science and Sport of the Republic of Slovenia under the Programme of \"Research Infrastructures\"",
+  "announce": {
+    "complex": "In the original text, the following words are highlighted: ",
+    "simplified": "In the simplified text, the following words are highlighted: "
+  },
+  "num_of_simplified_sentences": "Number of simplified sentences: {{value}}",
+  "not_connected": "The texts are no longer connected.",
+  "textarea": {
+    "complex": {
+      "placeholder": "Paste or enter the text",
+      "resubmit": "Repeat simplification and analysis"
+    },
+    "simplified": {
+      "label": "Simplified text",
+      "resubmit": "Repeat analysis"
+    }
+  },
+  "analyzing": "Analysing the text",
+  "analyze": "Analyse and simplify",
+  "display_mode": "View options",
+  "parallel_mode": "Parallel",
+  "parallel_mode_sr": "Show the texts side by side",
+  "sentence_mode": "By sentences",
+  "sentence_mode_sr": "Show the texts by sentences",
+  "start_over": "Start over",
+  "start_over_sr": "Delete the text and start over",
+  "counter_label": "Numbers of used characters and available characters",
+  "reacted": "Your response has been recorded",
+  "like": "The text is useful",
+  "dislike": "The text is not useful",
+  "cancel": "Cancel changes",
+  "edit": "Edit",
+  "copy": "Copy",
+  "copy_success": "The text has been copied",
+  "insert_example_text": "Insert sample text",
+  "analysis": "Text analysis",
   "stats": {
+    "num_of_sentences": "Number of sentences",
+    "num_of_words": "Number of words",
+    "num_of_characters": "Number of characters",
     "not_in_general": "Words outside <a href=\"en/o-referencnih-seznamih\" title=\"More about reference lists\" target=\"_blank\">the general reference list</a>",
-    "not_in_textbook": "Words outside <a href=\"en/o-referencnih-seznamih\" title=\"More about reference lists\" target=\"_blank\">the textbook reference list</a>"
+    "not_in_textbook": "Words outside <a href=\"en/o-referencnih-seznamih\" title=\"More about reference lists\" target=\"_blank\">the textbook reference list</a>",
+    "hide": "Hide",
+    "show": "Show",
+    "not_in_general_sr": "words not on general reference list",
+    "not_in_textbook_sr": "words not on textbook reference list",
+    "words_longer_than": "Words longer than",
+    "characters": "characters",
+    "words_longer_than_sr": "words longer than {{ value }} characters"
+  },
+  "input_sentence": "Original sentence",
+  "simplified_sentence": "Simplified sentence",
+  "submit": "Potrdi",
+  "revert": "Restore the original sentence",
+  "about_project": "About the project",
+  "error": {
+    "generic": "An error has occured. Please try again later.",
+    "not_connected": "The view cannot be changed because the texts are no longer connected."
   }
 }
