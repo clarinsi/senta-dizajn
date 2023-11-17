@@ -20,7 +20,7 @@
   },
   "footer": "CLARIN.SI is supported by the Ministry of Education, Science and Sport of the Republic of Slovenia under the Programme of \"Research Infrastructures\"",
   "announce": {
-    "complex": "V kompleksnem besedilu so označene naslednje besede: ",
+    "complex": "V izvirnem besedilu so označene naslednje besede: ",
     "simplified": "V poenostavljenem besedilu so označene naslednje besede: "
   },
   "num_of_simplified_sentences": "Število poenostavljenih povedi: {{value}}",
